@@ -1,0 +1,30 @@
+<ion-view view-title="Actividades">
+	<ion-nav-buttons side="right">
+		<button ui-sref="app.recipes.add" class="button button-icon ion-paper-airplane pull-right"></button>
+	</ion-nav-buttons>
+	<ion-content>
+		<div class="list card">
+			<div class="item">
+				<h2>{{RecipesCtrlShow.recipe.name}}</h2>
+				<p>{{RecipesCtrlShow.recipe.created_at}}</p>
+			</div>
+			<div class="item item-body">
+				<img class="full-image" ng-if="RecipesCtrlShow.recipe.files[0]" src="{{RecipesCtrlShow.storageUrl+RecipesCtrlShow.recipe.files[0].file.name}}">
+				<p>
+					{{RecipesCtrlShow.recipe.description}}
+				</p>
+				<p>
+					<a href="#" class="subdued">1 Like</a>
+					<a href="#" class="subdued">5 Comments</a>
+				</p>
+			</div>
+			<div class="item item-body">
+				<h3>Ingredientes</h3>
+				<p ng-repeat="ingredient in RecipesCtrlShow.recipe.ingredients">
+					{{ingredient.name}} {{ingredient.amount}}
+				</p>
+			</div>
+
+		</div>
+	</ion-content>
+</ion-view>

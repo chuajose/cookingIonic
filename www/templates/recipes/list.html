@@ -1,0 +1,26 @@
+<ion-view view-title="Recetas">
+	<ion-nav-buttons side="right">
+        <button ui-sref="app.recipes.add" class="button button-icon ion-paper-airplane pull-right"></button>
+    </ion-nav-buttons>
+  <ion-content>
+		<div class="list card" ng-repeat="recipe in RecipesCtrlList.recipes" ui-sref="app.recipes.show({'id':recipe.id})">
+
+		  <div class="item ">
+		    <!--<img src="mcfly.jpg">-->
+		    <h2>{{recipe.name}}</h2>
+		    <p><small>{{recipe.created_at}}</small></p>
+		  </div>
+
+		  <div class="item item-body">
+		    <img class="full-image" ng-if="recipe.files[0]" src="{{RecipesCtrlList.storageUrl+recipe.files[0].file.name}}">
+		    <p>
+		     {{recipe.description | limitTo : 100}}
+		    </p>
+		    <p>
+		      <a href="#" class="subdued">1 Like</a>
+		      <a href="#" class="subdued">5 Comments</a>
+		    </p>
+		  </div>
+
+		</div>
+</ion-view>

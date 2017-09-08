@@ -1,0 +1,42 @@
+<ion-view view-title="Registro">
+  <ion-content>
+    <h1>Registro</h1>
+    <div class="list">
+	  <label class="item item-input item-floating-label">
+	    <span class="input-label">Nombre</span>
+	    <input type="text" placeholder="Nombre" ng-model="RegisterCtrl.name" required="">
+	  </label>
+	  <label class="item item-input item-floating-label">
+	    <span class="input-label">username</span>
+	    <input type="text" ng-blur="RegisterCtrl.checkUsername()" ng-model="RegisterCtrl.username" placeholder="Username" required="">
+	    <small style="color:red; font-size: 8px" ng-if="!RegisterCtrl.permit_username">Usuario registrado, escoje otro</small>
+	  </label>
+	  <label class="item item-input item-floating-label">
+	    <span class="input-label">Email</span>
+	    <input type="text" placeholder="Email" ng-model="RegisterCtrl.email" required="">
+	  </label>
+	  <label class="item item-input item-floating-label">
+	    <span class="input-label">Telefono</span>
+	    <input type="text" placeholder="Telefono" ng-model="RegisterCtrl.phone" required="">
+	  </label>
+	  <label class="item item-input item-floating-label">
+	    <span class="input-label">Password</span>
+	    <input type="text" placeholder="Contraseña" ng-model="RegisterCtrl.password" required="">
+	  </label>
+	  <label class="item item-input item-floating-label">
+	    <span class="input-label">Confirma Password </span>
+	    <input type="text" placeholder="Contraseña" ng-model="RegisterCtrl.password_confirmation" required="">
+	  </label>
+	  <label class="item item-input item-floating-label">
+	    <span class="input-label">fecha nacimiento </span>
+	    <input type="text" placeholder="aaaa-mm-dd" ng-model="RegisterCtrl.birthdate" required="">
+	  </label>
+	</div>
+	<input type="file" ngf-select ng-model="RegisterCtrl.file" name="file"    
+				             accept="image/*" ngf-max-size="10MB" required
+				             ngf-model-invalid="errorFile">
+				      
+	<button class="button button-block button-positive" ng-click="RegisterCtrl.register()">Registro</button>
+	<button class="button button-block button-assertive" ui-sref="app.login">Ya tengo cuenta</button>
+  </ion-content>
+</ion-view>
